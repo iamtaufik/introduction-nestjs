@@ -29,11 +29,8 @@ export class UserController {
   }
   // Add user
   @Post('/')
-  async create(
-    @Res() resizeBy,
-    @Body() createUserDto: CreateUserDto,
-  ): Promise<any> {
-    return resizeBy.json(await this.userService.cretae(createUserDto));
+  async create(@Res() res, @Body() createUserDto: CreateUserDto): Promise<any> {
+    return res.json(await this.userService.cretae(createUserDto));
   }
   // Update User
   @Put('/:id')
